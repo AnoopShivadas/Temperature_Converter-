@@ -1,0 +1,123 @@
+:root {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1e1e2f;
+  --text-primary: #e0f7fa;
+  --highlight: #00bcd4;
+  --input-bg: #2a2a40;
+  --button-gradient-start: #2196f3;
+  --button-gradient-end: #00acc1;
+  --button-hover-shadow: rgba(0, 188, 212, 0.6);
+  --transition-fast: 0.2s;
+  --transition-slow: 0.4s;
+}
+
+body {
+  background: linear-gradient(130deg, #08080d, #1b1b6af1);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  background: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius:15px;
+  box-shadow: 20px 12px 20px hsla(0, 0%, 0%, 0.5);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  border: 1px solid #2c3e50;
+  transition: background var(--transition-slow);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--highlight);
+  letter-spacing: 1px;
+}
+
+.input-section,
+.button-section,
+.output-section {
+  margin: 1.5rem 0;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: box-shadow var(--transition-fast);
+  box-shadow: inset 0 0 0 transparent;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--highlight);
+}
+
+button {
+  padding: 0.7rem 1.4rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--button-gradient-start), var(--button-gradient-end));
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--button-hover-shadow);
+}
+
+.output-section p {
+  font-size: 1.2rem;
+  margin: 0.6rem 0;
+  color: #ffffff;
+  background-color: #1c1c2b;
+  padding: 0.8rem;
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 200, 255, 0.1);
+  transition: opacity var(--transition-slow);
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+}
